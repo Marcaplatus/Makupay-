@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makupay-Daily Contribution System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Section -->
+        <div id="auth-section" class="section active">
+            <div class="auth-container">
+                <h1>Makupay</h1>
+                <h3>Daily Contribution System</h3>
+
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="showAuthTab('login')">Login</button>
+                    <button class="tab-btn" onclick="showAuthTab('register')">Register</button>
+                </div>
+
+                <!-- Login -->
+                <div id="login-form" class="auth-form active">
+                    <input type="email" id="login-email" placeholder="Email" required />
+                    <input type="password" id="login-pin" maxlength="4" placeholder="4-digit PIN" required />
+                    <button onclick="login()">Login</button>
+                </div>
+
+                <!-- Register -->
+                <div id="register-form" class="auth-form">
+                    <input type="text" id="register-name" placeholder="Full Name" required />
+                    <input type="email" id="register-email" placeholder="Email" required />
+                    <input type="tel" id="register-phone" placeholder="Phone Number" required />
+                    <input type="password" id="register-pin" maxlength="4" placeholder="Create 4-digit PIN" required />
+                    <button onclick="register()">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-section" class="section">
+            <header class="header">
+                <h2>Welcome to Makupay Dashboard, <span id="username-display">User</span></h2>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </header>
+
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Saved</h3>
+                        <div id="total-saved" class="stat-value">₦0.00</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Current Streak</h3>
+                        <div id="current-streak" class="stat-value">0 days</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Contribution Days</h3>
+                        <div id="total-days" class="stat-value">0</div>
+                    </div>
+                </div>
+
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <h3>Make Contribution</h3>
+                        <select id="contribution-type">
+                            <option value="daily">Daily Contribution</option>
+                            <option value="weekly">Weekly Contribution</option>
+                            <option value="monthly">Monthly Contribution</option>
+                            <option value="yearly">Yearly Contribution</option>
+                        </select>
+                        <input type="number" id="contribution-amount" placeholder="Amount (min: ₦1000)" min="1000" />
+                        <button onclick="showPaymentModal()">Proceed to Payment</button>
+                        <div id="today-status" class="status-message"></div>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h3>Withdraw Funds</h3>
+                        <select id="withdrawal-bank">
+                            <option value="">Select Bank</option>
+                            <option value="access">Access Bank</option>
+                            <option value="zenith">Zenith Bank</option>
+                            <option value="uba">UBA</option>
+                            <option value="first">First Bank</option>
+                            <option value="gtb">GTBank</option>
+                        </select>
+                        <input type="number" id="withdrawal-amount" placeholder="Amount" />
+                        <button onclick="withdrawFunds()" class="secondary">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Payment</h3>
+                <button class="close-btn" onclick="closePaymentModal()">&times;</button>
+            </div>
+            <p>You are about to contribute <strong id="payment-amount">₦0</strong> as <span id="payment-type">daily</span> contribution.</p>
+            
+            <div class="payment-method">
+                <h4>Pay with Paystack</h4>
+                <p>Secure payment powered by Paystack</p>
+                <button class="payment-btn" onclick="processPayment()">Pay Now</button>
+            </div>
+            
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">You will be redirected to a secure payment page</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    
