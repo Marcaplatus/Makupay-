@@ -335,3 +335,114 @@
                 grid-template-columns: 1fr;
             }
         }
+
+      /* ---------------------------
+         LEFT — SLIDESHOW (image area)
+         --------------------------- */
+        .landing-container {
+          display: flex;
+          width: 100%;
+          height: 100vh;
+      }
+      .landing-left {
+          flex: 1;                      /* Makes left side flexible */
+          display: flex;                /* Flex so the image fills perfectly */
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;             /* Prevents overflow from images */
+      }
+      
+      
+      .slideshow img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;            /* 🔥 Makes image fit nicely */
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+      
+      /* slide images: cover and centered */
+      .slideshow img,
+      .slideshow .slide{
+        width:100%;
+        height:100%;
+        border-radius: 10px;
+        object-fit:cover;
+        object-position:center;
+        position:absolute;
+        top:0;left:0;
+        opacity:0;
+        transition:opacity 800ms ease, transform 800ms ease;
+      }
+      
+      /* active slide visible */
+      .slideshow .active{ opacity:1; transform: none; z-index:2 }
+      
+      /* optional: soft inset for photo to mimic rounded top-left */
+      .landing-left::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        background:linear-gradient(transparent, rgba(0,0,0,0.02));
+      }
+      
+      /* ---------------------------
+         RIGHT — CONTENT (auth area / hero)
+         --------------------------- */
+      .landing-right{
+        width:52%;
+        padding:48px 44px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:18px;
+      }
+      
+      /* title + subtitle centered like screenshot */
+      .landing-right h1{
+        font-size:44px;
+        line-height:1;
+        color:var(--blue);
+        font-weight:500;
+        margin-bottom:16px;
+        text-align:center;
+      }
+      
+      .landing-right p{
+        color:var(--muted);
+        font-size:18px;
+        text-align:center;
+        margin-bottom:20px;
+      }
+      
+      /* prominent gradient "Get Started" button */
+      .start-btn{
+        display:inline-block;
+        margin: 12px auto 0;
+        padding: 16px 34px;
+        border-radius: 10px;
+        color:#fff;
+        font-weight:700;
+        font-size:18px;
+        background: var(--grad);
+        box-shadow: 0 10px 20px rgba(37,117,252,0.14);
+        text-decoration:none;
+        transition: transform .15s ease, box-shadow .15s ease;
+      }
+      
+      .start-btn:active{ transform: translateY(1px) }
+      .start-btn:hover{ transform: translateY(-4px); box-shadow: 0 14px 36px rgba(37,117,252,0.18) }
+      
+      /* small decorative container shape to mimic screenshot spacing */
+      .landing-right .card-inner{
+        width:100%;
+        background:transparent;
+        padding-top:0px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+      
