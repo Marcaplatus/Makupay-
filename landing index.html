@@ -3,29 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>꧁Makupay — Welcome꧁</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Makupay — Welcome</title>
+    <link rel="stylesheet" href="styl.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="landing-container">
-
         <div class="landing-left">
-            <div class="slideshow">
-                <img src="img1.jpg" class="slide active">
-                <img src="img2.jpg" class="slide">
-                <img src="img3.jpg" class="slide">
+            <div class="slideshow-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="img1.jpg" alt="Team Collaboration" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="img2.jpg" alt="Productivity" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="img3.jpg" alt="Goal Setting" loading="lazy">
+                    </div>
+                </div>
+                <button class="slide-nav prev" aria-label="Previous slide"></button>
+                <button class="slide-nav next" aria-label="Next slide"></button>
+                <div class="slide-dots">
+                    <button class="dot active" aria-label="Go to slide 1"></button>
+                    <button class="dot" aria-label="Go to slide 2"></button>
+                    <button class="dot" aria-label="Go to slide 3"></button>
+                </div>
             </div>
         </div>
 
         <div class="landing-right">
-            <h1>꧁Makupay༆</h1>
-            <p>Daily Contribution System</p>
-
-            <a href="index.html" class="start-btn">Get Started</a>
+            <div class="content-wrapper">
+                <h1 class="brand-title">Makupay</h1>
+                <p class="tagline">An Automated Daily Contribution System</p>
+                <p class="description">Track your daily contributions, achieve goals, and build better financial habits with our intuitive platform.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span>Real-time Tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span>Goal Setting</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <span>Secure & Private</span>
+                    </div>
+                </div>
+                
+                <a href="index.html" class="start-btn">Get Started →</a>
+                
+                <p class="login-link">Already have an account? <a href="index.html">Login here</a></p>
+            </div>
         </div>
-
     </div>
-<script src="script.js"></script>
+    <script src="landing page index.js"></script>
 </body>
 </html>
